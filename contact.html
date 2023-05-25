@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - E-commerce Website</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      .footer-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="bg-gray-800">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <a class="text-white font-semibold text-lg" href="#">Tech Gala</a>
+          </div>
+          <div class="flex">
+            <ul class="flex items-center space-x-4">
+              <li>
+                <a class="text-gray-300 hover:text-white" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a class="text-gray-300 hover:text-white" href="product.html"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-gray-300 hover:text-white flex items-center"
+                  href="cart.html"
+                >
+                  Cart
+                  <span
+                    class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center ml-2 cart-count"
+                    id="cart-count"
+                    >0</span
+                  >
+                </a>
+              </li>
+              <li>
+                <a class="text-gray-300 hover:text-white" href="#">Checkout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contact Page Content -->
+    <section class="container mx-auto px-4 py-10">
+      <h1 class="text-4xl font-bold mb-8">Contact Us</h1>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <h2 class="text-xl font-semibold mb-4">Get in Touch</h2>
+          <p class="text-gray-500 mb-4">
+            We'd love to hear from you. Please fill out the form below to send
+            us a message.
+          </p>
+          <form>
+            <div class="mb-4">
+              <label class="block text-gray-700 font-bold mb-2" for="name"
+                >Name</label
+              >
+              <input
+                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="name"
+                type="text"
+                placeholder="Your Name"
+              />
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 font-bold mb-2" for="email"
+                >Email</label
+              >
+              <input
+                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="email"
+                type="email"
+                placeholder="Your Email"
+              />
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 font-bold mb-2" for="message"
+                >Message</label
+              >
+              <textarea
+                class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="message"
+                placeholder="Your Message"
+              ></textarea>
+            </div>
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold mb-4">Contact Information</h2>
+          <p class="mb-4">
+            <i class="fas fa-map-marker-alt mr-2 text-gray-500"></i>123 Tech
+            Street, City, Country
+          </p>
+          <p class="mb-4">
+            <i class="fas fa-envelope mr-2 text-gray-500"></i>info@example.com
+          </p>
+          <p class="mb-4">
+            <i class="fas fa-phone-alt mr-2 text-gray-500"></i>+1 123 456 7890
+          </p>
+          <h2 class="text-xl font-semibold mb-4">Follow Us</h2>
+          <div class="flex space-x-4">
+            <a href="#" class="text-blue-500 hover:text-blue-700"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="#" class="text-blue-500 hover:text-blue-700"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="text-blue-500 hover:text-blue-700"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="text-blue-500 hover:text-blue-700"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <section>
+      <div class="bg-gray-900 text-white">
+        <div class="container mx-auto py-10 px-4">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10"
+          >
+            <div>
+              <h2 class="text-lg font-semibold mb-4">About Us</h2>
+              <p class="text-gray-400">We Find Ways.</p>
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
+              <ul>
+                <li><a class="footer-link" href="index.html">Home</a></li>
+                <li><a class="footer-link" href="product.html">Products</a></li>
+                <li><a class="footer-link" href="index.html">About</a></li>
+                <li><a class="footer-link" href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold mb-4">Follow Us</h2>
+              <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-gray-400"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+                <a href="#" class="text-white hover:text-gray-400"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" class="text-white hover:text-gray-400"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="text-white hover:text-gray-400"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </div>
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold mb-4">Download Our App</h2>
+              <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-gray-400"
+                  ><i class="fab fa-google-play fa-2x"></i
+                ></a>
+                <a href="#" class="text-white hover:text-gray-400"
+                  ><i class="fab fa-app-store-ios fa-2x"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

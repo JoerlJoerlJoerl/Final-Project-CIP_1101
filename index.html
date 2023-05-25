@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-commerce Website</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+</style>
+  <!-- Tailwind CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="bg-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <a class="text-white font-semibold text-lg" href="#">Tech Gala</a>
+        </div>
+        <div class="flex">
+          <ul class="flex items-center space-x-4">
+            <li><a class="text-gray-300 hover:text-white" href="index.html">Home</a></li>
+            <li><a class="text-gray-300 hover:text-white" href="product.html">Products</a></li>
+            <li>
+              <a class="text-gray-300 hover:text-white flex items-center" href="cart.html">
+                Cart
+                <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center ml-2 cart-count" id="cart-count">0</span>
+              </a>
+            </li>
+            
+            <li><a class="text-gray-300 hover:text-white" href="#">Checkout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+<!--Hero-->
+<style>
+  .hero {
+    background-image: url('home1.png');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+  }
+</style>
+</head>
+
+<body>
+<section class="hero bg-gray-900 text-white py-64">
+  <div class="container mx-auto text-center">
+    <h1 class="text-4xl font-bold mb-4">Welcome to Tech Gala</h1>
+    <p class="text-lg mb-8">Explore the amazing features we offer</p>
+  </div>
+</section>
+
+<script>
+  // Function to change background image
+  function changeBackgroundImage() {
+    const images = [
+      'home2.jpeg',
+      'home3.jpg',
+      'home4.jpg'
+    ];
+
+    const heroSection = document.querySelector('.hero');
+
+    let currentIndex = 0;
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+    }, 5000);
+  }
+
+  // Call the function on page load
+  window.addEventListener('load', changeBackgroundImage);
+</script>
+
+  <!-- Product Listing -->
+  <section class="py-5">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4"><center>Featured Product's</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="product-list">
+        <!-- Product cards will be dynamically added here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- jQuery and Tailwind CSS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    $(document).ready(function () {
+      var products = [
+        {
+          name: "AMD Ryzen™ 7 5700G",  
+          category: "PC Parts",
+          brand: "Ryzen",
+          price: "$19.99",
+          image: "r7.jpg"
+        },
+        {
+          name: "12th Generation Intel® Core™ i7 Processors",
+          category: "PC Parts",
+          brand: "INTEL",
+          price: "$24.99",
+          image: "i7.jpg"
+        },
+        {
+          name: "AMD Ryzen™ 5 5600G",
+          category: "PC PARTS",
+          brand: "RYZEN",
+          price: "$14.99",
+          image: "r5.png"
+        },
+        {
+          name: "12th Generation Intel® Core™ i5 Processors",
+          category: "PC PARTS",
+          brand: "INTEL",
+          price: "$15.99",
+          image: "i5.jpg"
+        },
+        // Add more products here
+      ];
+
+      var cartItems = []; // Initialize empty cart items array
+
+      // Render products
+      function renderProducts() {
+        var productContainer = $('#product-list');
+        productContainer.empty();
+
+        products.forEach(function (product) {
+          var productCard = `
+            <div class="bg-white rounded-lg shadow-md p-4" data-category="${product.category}" data-brand="${product.brand}">
+              <img class="w-full h-40 object-contain mb-4 product-image" src="${product.image}" alt="${product.name}">
+              <h4 class="text-lg font-bold product-name">${product.name}</h4>
+              <h5 class="text-gray-500 product-price">${product.price}</h5>
+              <p class="text-gray-700"></p>
+              <button class="mt-4 py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-700 add-to-cart-btn">Add to Cart</button>
+            </div>
+          `;
+          productContainer.append(productCard);
+        });
+      }
+
+      // Render cart items
+      function renderCartItems() {
+        var cartItemsContainer = $('#cart-items');
+        cartItemsContainer.empty();
+
+        var total = 0;
+
+        cartItems.forEach(function (item) {
+          var cartItemCard = `
+            <div class="bg-white rounded-lg shadow-md p-4">
+              <img class="w-full h-40 object-contain mb-4" src="${item.image}" alt="${item.name}">
+              <h4 class="text-lg font-bold">${item.name}</h4>
+              <h5 class="text-gray-500">${item.price}</h5>
+            </div>
+          `;
+          cartItemsContainer.append(cartItemCard);
+
+          total += parseFloat(item.price.slice(1)); // Remove the dollar sign and parse as a float
+        });
+
+        $('#cart-total').text('$' + total.toFixed(2));
+
+        // Update cart count
+        var cartCountElement = $('.cart-count');
+        cartCountElement.text(cartItems.length);
+      }
+
+      // Filter products
+      function filterProducts(category, brand) {
+        var productCards = $('#product-list .bg-white');
+
+        productCards.each(function () {
+          var productCard = $(this);
+
+          var productCategory = productCard.data('category');
+          var productBrand = productCard.data('brand');
+
+          var categoryMatch = category ? productCategory === category : true;
+          var brandMatch = brand !== '' ? productBrand === brand : true;
+
+          if (categoryMatch && brandMatch) {
+            productCard.show();
+          } else {
+            productCard.hide();
+          }
+        });
+      }
+
+      // Initial product rendering
+      renderProducts();
+
+      // Retrieve cart items from localStorage
+      var storedCartItems = localStorage.getItem('cartItems');
+      if (storedCartItems) {
+        cartItems = JSON.parse(storedCartItems);
+        renderCartItems();
+      }
+
+      // Add to Cart (using event delegation)
+      $('#product-list').on('click', '.add-to-cart-btn', function () {
+        var productCard = $(this).closest('.bg-white');
+
+        var item = {
+          name: productCard.find('.product-name').text(),
+          price: productCard.find('.product-price').text(),
+          image: productCard.find('.product-image').attr('src')
+        };
+
+        cartItems.push(item);
+        renderCartItems();
+
+        // Store cart items in localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      });
+      
+
+     
+    });
+  </script>
+  
+      <section><div class="bg-gray-900 text-white">
+        <div class="container mx-auto py-10 px-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+            <div>
+              <h2 class="text-lg font-semibold mb-4">About Us</h2>
+              <p class="text-gray-400">We Find Ways.</p>
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
+              <ul>
+                <li><a class="footer-link" href="index.html">Home</a></li>
+                <li><a class="footer-link" href="product.html">Products</a></li>
+                <li><a class="footer-link" href="index.html">About</a></li>
+                <li><a class="footer-link" href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold mb-4">Follow Us</h2>
+              <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+            <div>
+              <h2 class="text-lg font-semibold mb-4">Download Our App</h2>
+              <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-google-play fa-2x"></i></a>
+                <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-app-store-ios fa-2x"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></section>
+  
+</body>
+</html>

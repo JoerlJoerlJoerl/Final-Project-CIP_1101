@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="bg-gray-800">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <a class="text-white font-semibold text-lg" href="#">Tech Gala</a>
+          </div>
+          <div class="flex">
+            <ul class="flex items-center space-x-4">
+              <li><a class="text-gray-300 hover:text-white" href="index.html">Home</a></li>
+              <li><a class="text-gray-300 hover:text-white" href="product.html">Products</a></li>
+              <li>
+                <a class="text-gray-300 hover:text-white flex items-center" href="cart.html">
+                  Cart
+                  <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center ml-2 cart-count" id="cart-count">0</span>
+                </a>
+              </li>
+              
+              <li><a class="text-gray-300 hover:text-white" href="#">Checkout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Categories -->
+    <section class="py-5">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-4">Categories</h2>
+        <div class="flex space-x-4">
+          <button
+            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 filter-btn"
+            data-category="PC Parts"
+            data-brand=""
+          >
+            Processors
+          </button>
+          <button
+            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 filter-btn"
+            data-category="Phone"
+            data-brand=""
+          >
+            Phone
+          </button>
+          <button
+            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 filter-btn"
+            data-category="HEADPHONES"
+            data-brand=""
+          >
+            Headset
+          </button>
+          <button
+            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 filter-btn"
+            data-brand=""
+          >
+            Clear All
+          </button>
+          <!-- Add more categories here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="py-5">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-4">Brands</h2>
+        <div class="flex space-x-4">
+          <button
+            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 filter-btn"
+            data-category=""
+            data-brand="SONY"
+          >
+            Sony
+          </button>
+
+          <button
+            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 filter-btn"
+            data-category=""
+            data-brand="MONTBLANC"
+          >
+            MONTBLANC
+          </button>
+          <button
+            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 filter-btn"
+            data-category=""
+            data-brand="RAZER"
+          >
+            Razer
+          </button>
+
+          <button
+            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 filter-btn"
+            data-category=""
+            data-brand="JBL"
+          >
+            JBL
+          </button>
+
+          <button
+            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 filter-btn"
+            data-category=""
+            data-brand="Apple"
+          >
+            Apple
+          </button>
+
+
+          <button
+            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 filter-btn"
+            data-category=""
+            data-brand="INTEL"
+          >
+            Intel
+          </button>
+          <button
+            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 filter-btn"
+            data-category=""
+            data-brand="Ryzen"
+          >
+            Ryzen
+          </button>
+          <button
+            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 filter-btn"
+            data-brand=""
+          >
+            Clear All
+          </button>
+          <!-- Add more brands here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Listing -->
+    <section class="py-5">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-4">Products</h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+          id="product-list"
+        >
+          <!-- Product cards will be dynamically added here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- jQuery and Tailwind CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+      
+      $(document).ready(function () {
+        
+        var products = [
+          {
+            name: "AMD Ryzen™ 7 5700G",
+            category: "PC Parts",
+            brand: "Ryzen",
+            price: "$19.99",
+            image: "r7.jpg",
+            uniqueText:"The AMD Ryzen 7 5700G is a desktop processor with 8 cores, launched in April 2021. It is part of the Ryzen 7 lineup, using the Zen 3 (Cezanne) architecture with Socket AM4. Thanks to AMD Simultaneous Multithreading (SMT) the core-count is effectively doubled, to 16 threads.",
+          },
+          {
+            name: "12th Generation Intel® Core™ i7 Processors",
+            category: "PC Parts",
+            brand: "INTEL",
+            price: "$24.99",
+            image: "i7.jpg",
+            uniqueText:"12th Gen Intel Core i7 CPUs are powerful computer processors by Intel. They offer exceptional performance for tasks like gaming, content creation, and multitasking. With advanced architecture and features, they deliver blazing-fast speeds and improved efficiency, providing an impressive computing experience.",
+
+          },
+          {
+            name: "AMD Ryzen™ 5 5600G",
+            category: "PC Parts",
+            brand: "Ryzen",
+            price: "$14.99",
+            image: "r5.png",
+            uniqueText:"The AMD Ryzen 5 5600G is a Ryzen 5 CPU with built-in integrated Radeon Graphics. It is a 6 core/12 thread CPU. This matches the core/thread count on the Ryzen 5 3600X (Zen 2 CPU) and Ryzen 5 5600X (Zen 3 CPU).",
+
+          },
+          {
+            name: "12th Generation Intel® Core™ i5 Processors",
+            category: "PC Parts",
+            brand: "INTEL",
+            price: "$104.99",
+            image: "i5.jpg",
+            uniqueText:"12th Gen Intel® Core™ processors offer leading edge performance hybrid architecture and support both DDR5 and PCIe 5.0. That gives you a platform you can customize at any time down the road. With Intel® Wi-Fi 6E and Thunderbolt™ 4, you get exclusive, high-speed, Wi-Fi channels and the most versatile port available.",
+
+          },
+          {
+            name: "Iphone 12 pro max",
+            category: "Phone",
+            brand: "Apple",
+            price: "$124.99",
+            image: "ip12pro.jpg",
+            uniqueText:"The iPhone 12 display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. When measured as a standard rectangular shape, the screen is 15.40 centimetres (6.06 inches) diagonally (actual viewable area is less).",
+
+          },
+          {
+            name: "Iphone 13",
+            category: "Phone",
+            brand: "Apple",
+            price: "$134.99",
+            image: "ip13.jpg",
+            uniqueText:"The iPhone 13 display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. When measured as a standard rectangular shape, the screen is 6.06 inches diagonally (actual viewable area is less). Both models: HDR display.",
+
+          },
+          {
+            name: "Iphone 13 pro max",
+            category: "Phone",
+            brand: "Apple",
+            price: "$144.99",
+            image: "ip13pro.jpg",
+            uniqueText:"Apple iPhone 13 Pro Max represents a 6.7-inch OLED display, equipped with a pixel density of 457ppi. The bezel-less notch display of the smartphone is safeguarded by appropriate screen protection besides 1284 X 2778 pixels of screen resolution and an aspect ratio of 19.5:9.",
+
+          },
+          {
+            name: "Iphone 12",
+            category: "Phone",
+            brand: "Apple",
+            price: "$104.99",
+            image: "ip12.jpg",
+            uniqueText:"The iPhone 12 was Apple's mainstream flagship iPhone for 2020. Available in a 6.1-inch size, the iPhone 12 offers 5G, an OLED display, improved cameras, and Apple's A14 chip.",
+
+          },
+          {
+            name: "RAZER Kraken",
+            category: "HEADPHONES",
+            brand: "RAZER",
+            price: "$30.99",
+            image: "razer1.jpg",
+            uniqueText:"Enjoy superior sound clarity and deep, punchy bass for a wide soundscape. From subtle footsteps sneaking up behind you to climatic explosions that blow you away, every sound detail is heard when you’re gaming with the Razer Kraken.",
+          },
+          {
+            name: "Jbl Quantum",
+            category: "HEADPHONES",
+            brand: "JBL",
+            price: "$24.99",
+            image: "jbl1.jpg",
+            uniqueText:"The JBL Quantum 300 is a quality wired gaming headset with a braided cable and boom mic that ensures your teammates will hear your callouts. This wired headset's nearly universal compatibility means you can take it from PC to Xbox and PlayStation without needing to resync or pair with each new system.",
+
+          },
+          {
+            name: "MONTBLANC",
+            category: "HEADPHONES",
+            brand: "MONTBLANC",
+            price: "$224.99",
+            image: "montblanc1.webp",
+            uniqueText:"Their hardware has equally been perfected for optimal sound output. The headphones pair with your device via Bluetooth, enabling an effortless listening experience. With a 10m range and multi-point connectivity, you have the freedom to move around while connected to 2 devices at the same time.",
+
+          },
+          {
+            name: "Sony",
+            category: "HEADPHONES",
+            brand: "SONY",
+            price: "$324.99",
+            image: "sony1.jpg",
+            uniqueText:"They are electroacoustic transducers, which convert an electrical signal to a corresponding sound. Headphones let a single user listen to an audio source privately, in contrast to a loudspeaker, which emits sound into the open air for anyone nearby to hear. Headphones are also known as earphones or, colloquially, cans.",
+
+          },
+          // Add more products here
+        ];
+
+        var cartItems = []; // Initialize empty cart items array
+
+        // Render products
+        function renderProducts() {
+  var productContainer = $('#product-list');
+  productContainer.empty();
+
+  products.forEach(function (product) {
+    var productCard = `
+      <div class="bg-white rounded-lg shadow-md p-4" data-category="${product.category}" data-brand="${product.brand}">
+        <img class="w-full h-40 object-contain mb-4 product-image" src="${product.image}" alt="${product.name}">
+        <h4 class="text-lg font-bold product-name">${product.name}</h4>
+        <h5 class="text-gray-500 product-price">${product.price}</h5>
+        <p class="text-gray-700">${product.uniqueText}</p> <!-- Add the unique text here -->
+        <button class="mt-4 py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-700 add-to-cart-btn">Add to Cart</button>
+      </div>
+    `;
+    productContainer.append(productCard);
+  });
+}
+
+
+        // Render cart items
+        function renderCartItems() {
+          var cartItemsContainer = $("#cart-items");
+          cartItemsContainer.empty();
+
+          var total = 0;
+
+          cartItems.forEach(function (item) {
+            var cartItemCard = `
+            <div class="bg-white rounded-lg shadow-md p-4">
+              <img class="w-full h-40 object-contain mb-4" src="${item.image}" alt="${item.name}">
+              <h4 class="text-lg font-bold">${item.name}</h4>
+              <h5 class="text-gray-500">${item.price}</h5>
+            </div>
+          `;
+            cartItemsContainer.append(cartItemCard);
+
+            total += parseFloat(item.price.slice(1)); // Remove the dollar sign and parse as a float
+          });
+
+          $("#cart-total").text("$" + total.toFixed(2));
+        }
+
+        // Filter products
+        function filterProducts(category, brand) {
+          var productCards = $("#product-list .bg-white");
+
+          productCards.each(function () {
+            var productCard = $(this);
+
+            var productCategory = productCard.data("category");
+            var productBrand = productCard.data("brand");
+
+            var categoryMatch = category ? productCategory === category : true;
+            var brandMatch = brand !== "" ? productBrand === brand : true;
+
+            if (categoryMatch && brandMatch) {
+              productCard.show();
+            } else {
+              productCard.hide();
+            }
+          });
+        }
+
+        // Initial product rendering
+        renderProducts();
+
+        // Retrieve cart items from localStorage
+        var storedCartItems = localStorage.getItem("cartItems");
+        if (storedCartItems) {
+          cartItems = JSON.parse(storedCartItems);
+          renderCartItems();
+        }
+
+        // Add to Cart (using event delegation)
+        $("#product-list").on("click", ".add-to-cart-btn", function () {
+          var productCard = $(this).closest(".bg-white");
+
+          var item = {
+            name: productCard.find(".product-name").text(),
+            price: productCard.find(".product-price").text(),
+            image: productCard.find(".product-image").attr("src"),
+          };
+
+          cartItems.push(item);
+          renderCartItems();
+
+          // Store cart items in localStorage
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        });
+
+        // Filter products (using event delegation)
+        $(".filter-btn").on("click", function () {
+          var category = $(this).data("category");
+          var brand = $(this).data("brand");
+
+          filterProducts(category, brand);
+        });
+      });
+    </script>
+      
+    </script>
+    <section><div class="bg-gray-900 text-white">
+      <div class="container mx-auto py-10 px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+          <div>
+            <h2 class="text-lg font-semibold mb-4">About Us</h2>
+            <p class="text-gray-400">We Find Ways.</p>
+          </div>
+          <div>
+            <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
+            <ul>
+              <li><a class="footer-link" href="index.html">Home</a></li>
+              <li><a class="footer-link" href="product.html">Products</a></li>
+              <li><a class="footer-link" href="index.html">About</a></li>
+              <li><a class="footer-link" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="text-lg font-semibold mb-4">Follow Us</h2>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-facebook"></i></a>
+              <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-lg font-semibold mb-4">Download Our App</h2>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-google-play fa-2x"></i></a>
+              <a href="#" class="text-white hover:text-gray-400"><i class="fab fa-app-store-ios fa-2x"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></section>
+  </body>
+</html>

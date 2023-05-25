@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Invoice Template Design</title>
+    <link rel="stylesheet" type="text/css" href="receiptstyles.css" />
+    <style>
+      /* Custom CSS */
+      body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      .wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .invoice_wrapper {
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #e2e8f0;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .logo_invoice_wrap {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo_sec {
+        margin-right: 40px;
+      }
+
+      .title_wrap {
+        margin-bottom: 10px;
+      }
+
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .sub_title {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .invoice_sec {
+        text-align: right;
+      }
+
+      .invoice {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .invoice_no {
+        margin: 10px 0;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .date {
+        margin: 10px 0;
+      }
+
+      .paymethod_grandtotal_wrap {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .paymethod_sec {
+        text-align: right;
+      }
+
+      .footer {
+        margin-top: 40px;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 20px;
+      }
+
+      .terms {
+        margin-top: 20px;
+      }
+
+      .tc {
+        margin-bottom: 10px;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .mt-8 {
+        margin-top: 32px;
+      }
+
+      .inline-block {
+        display: inline-block;
+      }
+
+      .py-3 {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .px-6 {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .bg-blue-500 {
+        background-color: #3b82f6;
+      }
+
+      .hover\:bg-blue-700:hover {
+        background-color: #2563eb;
+      }
+
+      .text-white {
+        color: #fff;
+      }
+
+      .font-bold {
+        font-weight: bold;
+      }
+
+      .rounded-lg {
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="invoice_wrapper">
+        <div class="header">
+          <div class="logo_invoice_wrap">
+            <div class="logo_sec">
+              <div class="title_wrap">
+                <p class="title bold">Tech Galac</p>
+                <p class="sub_title">Everything you need, Nothing you don't.</p>
+              </div>
+            </div>
+            <div class="invoice_sec">
+              <p class="invoice bold">INVOICE</p>
+              <p class="invoice_no">
+                <span class="bold">Invoice</span>
+                <span>#3488</span>
+              </p>
+              <p class="date">
+                <span class="bold">Date</span>
+                <span>May 2023</span>
+              </p>
+            </div>
+          </div>
+          <div class="paymethod_grandtotal_wrap">
+            <div class="paymethod_sec">
+              <p class="bold">Payment Method</p>
+              <p>Visa, MasterCard, and Cheque accepted</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <p>Thank you and Best Wishes</p>
+          <div class="terms">
+            <p class="tc bold">Terms & Conditions</p>
+            <p>
+              Terms of service are the legal agreements between a service
+              provider and a person who wants to use that service. The person
+              must agree to abide by the terms of service in order to use the
+              offered service. Terms of service can also be merely a disclaimer,
+              especially regarding the use of websites.
+            </p>
+          </div>
+        </div>
+        <!-- Checkout Button -->
+        <section class="text-center mt-8">
+          <a
+            class="inline-block py-3 px-6 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-lg"
+            href="index.html"
+            >Thank you for purchasing! Go back to home!</a
+          >
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
